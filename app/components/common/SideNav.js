@@ -6,14 +6,14 @@ var ProjectSide = require('./SideNavProj.js')
 console.log("is branch mixin", mixin);
 
 var SideNav = React.createClass({
-	mixin: [mixin],
+	mixins: [mixin],
 	cursors: {
-		menu: ['menu', 'bumpAmount']
+		bumpAmount: ['menu', 'bumpAmount']
 	},	
 	render: function() {
 		console.log("sidenav", this.props, this.state, this.context);
 		return (
-			<nav id="side-nav">
+			<nav id="side-nav" style={{ left: this.state.bumpAmount }}>
 				<MainSide />
 				<ProjectSide projects={this.props.projects}/>
 			</nav>
