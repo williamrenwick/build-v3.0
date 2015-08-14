@@ -1,22 +1,25 @@
 var React = require('react')
-var $ = require('jQuery')
+var mixin = require('baobab-react/mixins').branch
 var menuActions = require('../../actions/actions.js')
 
+var bumpAmount = 0;
 
 var MainNav = React.createClass({
+	mixins: [mixin],
+	cursors: {
+		isClicked: ['menu', 'isOpen'],
+		isHovering: ['menu', 'isHovering']
+	},
 	getInitialState: function() {
 		return {moveAmount: 0}
 	},
 	teaseMenu: function(e) {
 		menuActions.isHovering();
-		var newX = this.inAmount(e);
 
-		this.setState({ moveAmount: newX });
+		bumpAmount = this.inAmount(e);
 	},
 	unteaseMenu: function(e) {
 		menuActions.notHovering();
-
-		this.setState({ moveAmount: 0 });
 	},
 	inAmount: function(e) {
 		var button = e.target;
@@ -37,14 +40,34 @@ var MainNav = React.createClass({
 
 		return relX;
 	},
-	menuBtnOut: function() {
+	menuToggle: function() {
+
+		if (!this.state.isClicked) {
+			menuActions.isClicked();
+		} else if (this.state.isClicked) {
+			menuActions.notClicked();
+		}
 
 	},
-	render: function() {
+	getStyles: function() {
+		var styleObj = {
+			transform: null
+		}
 
+		if (!this.state.isHovering && !this.state.isClicked) {
+			styleObj.transform = 'translateX(' + 0 + 'px)';
+		} else if (this.state.isHovering && !this.state.isClicked) {
+			console.log(bumpAmount);
+
+			styleObj.transform = 'translateX(' + bumpAmount + 'px)';
+		}
+
+		return styleObj;
+	},
+	render: function() {
 		return (
-			<nav className="fixed-nav" style={{transform: 'translateX(' + this.state.moveAmount +'px)'}}>
-	          <div id="menu-button" onMouseEnter={this.teaseMenu} onMouseLeave={this.unteaseMenu} ref="menu-btn">   
+			<nav className={this.state.isClicked ? 'fixed-nav menu-active' : 'fixed-nav' } style={ this.getStyles() }>
+	          <div id="menu-button" onMouseEnter={this.teaseMenu} onMouseLeave={this.unteaseMenu} onClick={this.menuToggle} ref="menu-btn">   
 	              <span className="menu-line"></span>
 	          </div>
 	          <span className="site-title">Lorem Ipsum</span>

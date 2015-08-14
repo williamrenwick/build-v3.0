@@ -1,33 +1,31 @@
 var stateTree = require('../data/stateTree.js');
-
-var movePercentage = ( (-100 + (20 / (window.innerWidth/2) * 100))/2 ) +'%';
-
-console.log(movePercentage)
+var menuCursor = stateTree.select('menu');
 
 
 var menuActions = {
 	isHovering: function() {
-		var menuCursor = stateTree.select('menu');
-
-		menuCursor.set('hoverClass', 'menu-hover');
 		menuCursor.set('isHovering', true);
-		menuCursor.set('bumpAmount', movePercentage)
 	},
 	notHovering: function() {
-		var menuCursor = stateTree.select('menu');
-
-		menuCursor.set('bumpAmount', '-50%');
 		menuCursor.set('isHovering', false)
 	},
 	isClicked: function() {
-		var menuCursor = stateTree.select('menu');
-
 		menuCursor.set('isOpen', true)
 	},
 	notClicked: function() {
-		var menuCursor = stateTree.select('menu');
+		var projSideStatus = menuCursor.get('isOpen');
 
 		menuCursor.set('isOpen', false)
+
+		if (projSideStatus) {
+			menuCursor.set('projSideOpen', false);
+		}
+	},
+	projSideOpen: function() {
+		menuCursor.set('projSideOpen', true)
+	},
+	projSideClose: function() {
+		menuCursor.set('projSideOpen', false)
 	}
 }
 
