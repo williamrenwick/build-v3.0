@@ -11,7 +11,7 @@ var ProjectSide = React.createClass({
 			liItems.push(<LiProjItem project={project} />)
 		})
 		return (
-			<ul>
+			<ul id="proj-all">
 				<li className="proj-all-title projLi"></li>
 				{liItems}
 			</ul>

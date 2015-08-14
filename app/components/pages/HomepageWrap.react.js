@@ -6,16 +6,14 @@ var Contact = require('../common/Contact.js')
 
 
 var HomepageWrap = React.createClass({
-
-	mixin: [mixin],
+	mixins: [mixin],
 	cursors: {
-		menu: ['menu', 'bumpAmount']
+		hoverClass: ['menu', 'isHovering']
 	},	
-	
 	render: function() {
-		console.log("hompage", this.context);
+		console.log("homepage", this.state);
 		return (
-			<div data-page='hp' id="wrap">
+			<div data-page='hp' id="wrap" className={this.state.hoverClass ? "menu-hover" : "" }>
 				<Intro />
 				<WorkItems projects={this.props.projects}/>
 				<Contact />

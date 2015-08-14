@@ -14,6 +14,8 @@ var MainNav = React.createClass({
 		this.setState({ moveAmount: newX });
 	},
 	unteaseMenu: function(e) {
+		menuActions.notHovering();
+
 		this.setState({ moveAmount: 0 });
 	},
 	inAmount: function(e) {

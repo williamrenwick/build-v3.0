@@ -11,7 +11,6 @@ var SideNav = React.createClass({
 		bumpAmount: ['menu', 'bumpAmount']
 	},	
 	render: function() {
-		console.log("sidenav", this.props, this.state, this.context);
 		return (
 			<nav id="side-nav" style={{ left: this.state.bumpAmount }}>
 				<MainSide />

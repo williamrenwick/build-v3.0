@@ -12,7 +12,9 @@ html {
     font-size: 1em;
     line-height: 1.4;
 }
-
+body {
+    margin: 0;
+}
 ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
@@ -328,15 +330,6 @@ section {
     margin-bottom: 20px;
     cursor: pointer;
 
-    &:after {
-        position: absolute;
-        content: '';
-        right: 0;
-        width: 2px;
-        height: 60%;
-        @include vertical-align;
-        background-color: #dadada;
-    }
     &:before {
         position: absolute;
         content: '';
@@ -365,6 +358,11 @@ section {
     -o-transform: translateX(0); 
     -ms-transform: translateX(0); 
     transform: translateX(0);     
+}
+#proj-all {
+    display: none;
+    width: 50%;
+    height: 100vh;
 }
 .number-wrap {
     font-size: 0.6em;
