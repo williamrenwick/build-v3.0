@@ -8,19 +8,34 @@ var LiProjItem = React.createClass({
     cursors: {
         projSideOpen: ['menu', 'projSideOpen']
     },
+    handleClick: function(e, idx) {
+        console.log(idx)
+    },
     getStyles: function() {
     	var styleObj = {
     		backgroundImage: 'url(' + this.props.project.bgImg + ')',
-    		height: window.innerHeight / this.props.totalAmount
+    		height: heightCalc(this.props.totalAmount)
     	}
 
+        function heightCalc(totalLiAmount) {
+            var originalHeight = 100;
+            var totalLiHeight = totalLiAmount * originalHeight;
+
+            if (totalLiHeight < window.innerHeight) {
+                var newHeight = window.innerHeight / totalLiAmount
+
+                return newHeight
+
+            } else if (totalLiHeight > window.innerHeight) {
+                return originalHeight
+            }
+        }
 
     	return styleObj
     },
 	render: function() {
-		console.log(this.props.totalAmount)
 		return (
-			<li className={classNames({projLink: true, projLi: !this.state.projSideOpen })} style={ this.getStyles() }>
+			<li className={classNames({projLink: true, projLi: !this.state.projSideOpen })} style={ this.getStyles() } onClick={ this.handleClick }>
 				<h1> {this.props.project.title} </h1>
 			</li>
 		)

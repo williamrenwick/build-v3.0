@@ -15,11 +15,13 @@ var MainNav = React.createClass({
 	},
 	teaseMenu: function(e) {
 		menuActions.isHovering();
-
 		bumpAmount = this.inAmount(e);
 	},
 	unteaseMenu: function(e) {
-		menuActions.notHovering();
+		menuActions.notHovering();	
+	},
+	handleClick: function(e) {
+		menuActions.isClicked();
 	},
 	inAmount: function(e) {
 		var button = e.target;
@@ -57,7 +59,6 @@ var MainNav = React.createClass({
 		if (!this.state.isHovering && !this.state.isClicked) {
 			styleObj.transform = 'translateX(' + 0 + 'px)';
 		} else if (this.state.isHovering && !this.state.isClicked) {
-			console.log(bumpAmount);
 
 			styleObj.transform = 'translateX(' + bumpAmount + 'px)';
 		}
@@ -65,9 +66,10 @@ var MainNav = React.createClass({
 		return styleObj;
 	},
 	render: function() {
+
 		return (
 			<nav className={this.state.isClicked ? 'fixed-nav menu-active' : 'fixed-nav' } style={ this.getStyles() }>
-	          <div id="menu-button" onMouseEnter={this.teaseMenu} onMouseLeave={this.unteaseMenu} onClick={this.menuToggle} ref="menu-btn">   
+	          <div id="menu-button" onMouseEnter={this.teaseMenu} onMouseLeave={this.unteaseMenu} onClick={this.menuToggle} ref="menu-btn">     
 	              <span className="menu-line"></span>
 	          </div>
 	          <span className="site-title">Lorem Ipsum</span>

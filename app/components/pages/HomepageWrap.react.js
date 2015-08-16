@@ -6,15 +6,17 @@ var WorkItems = require('./HomepageProjects.react.js')
 var Contact = require('../common/Contact.js')
 
 
+
 var HomepageWrap = React.createClass({
 	mixins: [mixin],
 	cursors: {
 		menuHover: ['menu', 'isHovering'],
 		menuActive: ['menu', 'isOpen']
 	},
+	onComponentDidMount: function() {
 
+	},
 	render: function() {
-		
 		return (
 			<div data-page='hp' id="wrap" className={ classNames({ menuHover: this.state.menuHover, menuActive: this.state.menuActive, noScroll: this.state.menuActive }) }>
 				<Intro />

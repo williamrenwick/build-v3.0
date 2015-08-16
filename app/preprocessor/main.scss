@@ -401,19 +401,40 @@ section {
     transform: translateX(0);     
 }
 #view-all-btn {
-    display: block;
     position: absolute;
     right: 10px;
     top: 50%;
     height: 20px;
     width: 20px;
     margin-top: -10px;
-    border: 2px solid #000000;
-    border-radius: 20px;
-    background-color: black;
-    @include box-sizing(border-box);
     z-index: 100;
     cursor: pointer;
+    -webkit-transition: all ease .4s;
+    -moz-transition: all ease .4s;
+    -o-transition: all ease .4s;
+    -ms-transition: all ease .4s;
+    transition: all ease .4s;
+    -webkit-backface-visibility: hidden;
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        background-color: #000000;
+    }
+    &:before {
+        left: 50%;
+        margin-left: -1px;
+        width: 2px;
+        height: 99%;
+    }
+    &:after {
+        top: 50%;
+        margin-top: -1px;
+        height: 2px;
+        width: 99%;
+    }
+    &.close {
+        transform: rotate(-135deg);
+    }
 }
 #project-side ul {
     height: 100%;
@@ -443,9 +464,26 @@ section {
 }
 .projLink h1 {
     position: relative;
+    top: 50%;
     margin: 0;
+    font-weight: 200;
+    text-align: center;
     color: #ffffff;
-    @include vertical-align;
+    -webkit-transform: translate(-20px, -50%);
+    -ms-transform: translate(-20px, -50%);
+    transform: translate(-20px, -50%);
+    opacity: 0;
+    -webkit-transition: all .2s .25s;
+    -moz-transition: all .2s .25s;
+    -o-transition: all .2s .25s;
+    -ms-transition: all .2s .25s;
+    transition: all .2s .25s;
+}
+#side-nav.projectMenu h1 {
+    -webkit-transform: translate(0px, -50%);
+    -ms-transform: translate(0px, -50%);
+    transform: translate(0px, -50%);
+    opacity: 1;
 }
 .number-wrap {
     font-size: 0.6em;

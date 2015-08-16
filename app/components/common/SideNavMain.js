@@ -1,6 +1,7 @@
 var React = require('react');
 var mixin = require('baobab-react/mixins').branch;
 var menuActions = require('../../actions/actions.js');
+var classNames = require('classnames');
 
 var MainSide = React.createClass({
     mixins: [mixin],
@@ -30,7 +31,7 @@ var MainSide = React.createClass({
                             <span className="page-number">2</span>/<span className="total-number">3</span>
                         </span>
                         <span className="page-title">Projects</span>
-                        <div id="view-all-btn" onClick={this.handleClick}></div>
+                        <div id="view-all-btn" className={ classNames({close: this.state.projSideOpen}) } onClick={this.handleClick}></div>
                     </li>
                     <li id="contactLi">
                         <span className="number-wrap">
