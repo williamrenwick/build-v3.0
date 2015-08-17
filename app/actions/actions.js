@@ -1,31 +1,31 @@
-var stateTree = require('../data/stateTree.js');
-var menuCursor = stateTree.select('menu');
+var StateTree = require('../data/stateTree.js');
+var MenuCursor = StateTree.select('menu');
 
 
 var menuActions = {
 	isHovering: function() {
-		menuCursor.set('isHovering', true);
+		MenuCursor.set('isHovering', true);
 	},
 	notHovering: function() {
-		menuCursor.set('isHovering', false)
+		MenuCursor.set('isHovering', false)
 	},
 	isClicked: function() {
-		menuCursor.set('isOpen', true)
+		MenuCursor.set('isOpen', true)
 	},
 	notClicked: function() {
-		var projSideStatus = menuCursor.get('isOpen');
+		var projSideStatus = MenuCursor.get('isOpen');
 
-		menuCursor.set('isOpen', false)
+		MenuCursor.set('isOpen', false)
 
 		if (projSideStatus) {
-			menuCursor.set('projSideOpen', false);
+			MenuCursor.set('projSideOpen', false);
 		}
 	},
 	projSideOpen: function() {
-		menuCursor.set('projSideOpen', true)
+		MenuCursor.set('projSideOpen', true)
 	},
 	projSideClose: function() {
-		menuCursor.set('projSideOpen', false)
+		MenuCursor.set('projSideOpen', false)
 	}
 }
 

@@ -1,9 +1,17 @@
-var React = require('react')
-var ViewBtn = require('./HomepageViewBtn.react.js')
-var HpColorAnim = require('../../animations/hpColorAnim.js')
+var React = require('react');
+var mixin = require('baobab-react/mixins').branch;
+var ViewBtn = require('./HomepageViewBtn.react.js');
+var HpColorAnim = require('../../animations/hpColorAnim.js');
+var ScrollActions = require('../../actions/scrollActions.js');
+var HPActions = require('../../actions/hpActions.js');
 
 
 var HpWorkItem = React.createClass({
+	mixins: [mixin],
+	cursors: {
+		scrollPos: ['scrolling', 'scrollPosition'],
+		workBGColor: ['homepage', 'workBGColor']
+	},
 	componentDidMount: function() {
 		window.addEventListener('scroll', this.handleScroll);
 	},
@@ -14,15 +22,16 @@ var HpWorkItem = React.createClass({
  		var scrollTop = event.srcElement.body.scrollTop,
  			colorData = HpColorAnim.workInfoBg(scrollTop);
 
- 		this.setState({
- 			backgroundColor: colorData
- 		})
+ 		ScrollActions.scrollPosUpdate(scrollTop);
+ 		HPActions.updateBGColor(colorData);
+
+ 		console.log(colorData, this.state.scrollPos, this.state.workBGColor)
 	},
 	render: function() {
 	
 		return (
 			<section className="hp-work-item" style={{'background-image': 'url(' + this.props.project.bgImg + ')' }}>
-			  <div className="work-info" style={{ backgroundColor: this.state.backgroundColor }} ref="workInfo">
+			  <div className="work-info" style={{ 'background-color': this.state.workBGColor }} ref="workInfo">
 				  <div className="work-text js-fade-text">
 					  <div className="worktext-appear-wrap">
 						<ViewBtn />

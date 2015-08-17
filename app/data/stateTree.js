@@ -5,6 +5,12 @@ var stateTree = new Baobab({
 		isHovering: false,
 		isOpen: false,
 		projSideOpen: false
+	},
+	scrolling: {
+		scrollPosition: null
+	},
+	homepage: {
+		workBGColor: null
 	}
 })
 

@@ -36,9 +36,6 @@ function Color(colourString) {
 
 }
 
-
-
-
 function changeItemBg(scrollPos) {
 	var $window = $(window),
         windowH = $window.height(),
@@ -50,7 +47,7 @@ function changeItemBg(scrollPos) {
 		endingColor = new Color('rgb(242, 231, 220)');
 
 
-    console.log('scrollPos', scrollPos, 'endPos', animationEndPos, 'beginPos', animationBeginPos)
+    //console.log('scrollPos', scrollPos, 'endPos', animationEndPos, 'beginPos', animationBeginPos)
 
 	if (scrollPos >= animationBeginPos && scrollPos <= animationEndPos ) { 
 		var percentScrolled = scrollPos / ( animationEndPos - animationBeginPos );
@@ -59,7 +56,7 @@ function changeItemBg(scrollPos) {
         var newBlue = beginningColor.blue() + ( ( endingColor.blue() - beginningColor.blue() ) * percentScrolled );
         var newColor = 'rgb(' + newRed + ', ' + newGreen +', ' + newBlue + ')';
 
-        console.log('newColor', newColor, 'percentScrolled', percentScrolled);
+        //console.log('newColor', newColor, 'percentScrolled', percentScrolled);
         return newColor
 
 	} else if ( scrollPos > animationEndPos ) {
