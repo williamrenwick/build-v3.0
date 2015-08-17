@@ -1,6 +1,7 @@
 var React = require('react')
 var ViewBtn = require('./HomepageViewBtn.react.js')
-var Recolor = require('../../animations/hpColorAnim.js')
+var HpColorAnim = require('../../animations/hpColorAnim.js')
+
 
 var HpWorkItem = React.createClass({
 	componentDidMount: function() {
@@ -11,14 +12,17 @@ var HpWorkItem = React.createClass({
 	},
 	handleScroll: function(event) {
  		var scrollTop = event.srcElement.body.scrollTop,
- 			workInfo = React.findDOMNode(this.refs.workInfo);
+ 			colorData = HpColorAnim.workInfoBg(scrollTop);
 
- 		Recolor.workInfoBg(scrollTop, workInfo)
+ 		this.setState({
+ 			backgroundColor: colorData
+ 		})
 	},
 	render: function() {
+	
 		return (
 			<section className="hp-work-item" style={{'background-image': 'url(' + this.props.project.bgImg + ')' }}>
-			  <div ref="workInfo" className="work-info">
+			  <div className="work-info" style={{ backgroundColor: this.state.backgroundColor }} ref="workInfo">
 				  <div className="work-text js-fade-text">
 					  <div className="worktext-appear-wrap">
 						<ViewBtn />
