@@ -17,6 +17,7 @@ var Homepage = require('./pages/HomepageWrap.react.js')
 var App = React.createClass({
 	mixins: [rootMixin],
 	render: function() {
+		console.log( "app", this.state, this.props, this.getChildContext() );
 		return (
 			<div id="reactWrap">
 				<MainNav ref="main-nav"/>
