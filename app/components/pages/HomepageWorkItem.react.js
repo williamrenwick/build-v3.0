@@ -1,5 +1,6 @@
 var React = require('react')
 var ViewBtn = require('./HomepageViewBtn.react.js')
+var Animations = require('../../animations/animations.js')
 
 var HpWorkItem = React.createClass({
 	render: function() {

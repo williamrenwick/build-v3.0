@@ -578,29 +578,72 @@ section {
 }
 .worktext-appear-wrap  * {
     margin: 0;
-    text-align: center;
 }
-.work-text h2 {
-    margin-bottom: 4rem;
+.work-text h2,
+#project-hdr-text h2 {
+    margin-bottom: 1rem;
+    margin-top: 0;
     text-transform: lowercase;
     font-weight: 100;
-    font-size: 14px;
+    font-size: 18px;
 }
-.work-text h1 {
+.work-text h1,
+#project-hdr-text h1 {
     margin-bottom: 3rem;
+    margin-top: 0;
     font-weight: 400;
     font-size: 50px;
     line-height: 1.2em;
 }
-.view-proj {
+.work-text h3,
+#project-hdr-text h3 {
+    font-size: 12px;
+    margin: 0;
+    text-transform: uppercase;
+}
+.view-proj,
+.close-proj {
     position: relative;
-    border: 1px solid black;
+    display: block;
+    border: none;
+    text-decoration: none;
     background-color: transparent;
     font-family: inherit;
     font-size: 12px;
-    padding: 0.8rem;
-    @include horizontal-align;
+    margin-bottom: 20px;
+    cursor: pointer;
     @include box-sizing(border-box);
+}
+.view-plus {
+    position: absolute;
+    float: left;
+    width: 18px;
+    height: 18px;
+
+    &:after,
+    &:before {
+        position: absolute;
+        content: '';
+        background-color: #000000;
+    }
+    &:after {
+        top: 50%;
+        left: 0px;
+        width: 18px;
+        height: 1px;
+        margin-top: -1px;
+    }
+    &:before {
+        top: 0;
+        left: 50%;
+        width: 1px;
+        height: 17px;
+    }
+}
+.view-proj p,
+.close-proj p {
+    margin-left: 30px;
+    margin-bottom: 20px;
 }
 /*#work-1 .work-info {
     background-color: #EAFFFF;

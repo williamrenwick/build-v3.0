@@ -658,40 +658,87 @@ section {
 /* line 579, preprocessor/main.scss */
 .worktext-appear-wrap * {
   margin: 0;
-  text-align: center;
 }
 
 /* line 583, preprocessor/main.scss */
-.work-text h2 {
-  margin-bottom: 4rem;
+.work-text h2,
+#project-hdr-text h2 {
+  margin-bottom: 1rem;
+  margin-top: 0;
   text-transform: lowercase;
   font-weight: 100;
-  font-size: 14px;
+  font-size: 18px;
 }
 
-/* line 589, preprocessor/main.scss */
-.work-text h1 {
+/* line 591, preprocessor/main.scss */
+.work-text h1,
+#project-hdr-text h1 {
   margin-bottom: 3rem;
+  margin-top: 0;
   font-weight: 400;
   font-size: 50px;
   line-height: 1.2em;
 }
 
-/* line 595, preprocessor/main.scss */
-.view-proj {
+/* line 599, preprocessor/main.scss */
+.work-text h3,
+#project-hdr-text h3 {
+  font-size: 12px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* line 605, preprocessor/main.scss */
+.view-proj,
+.close-proj {
   position: relative;
-  border: 1px solid black;
+  display: block;
+  border: none;
+  text-decoration: none;
   background-color: transparent;
   font-family: inherit;
   font-size: 12px;
-  padding: 0.8rem;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  -ms-transform: translate(-50%, 0);
-  transform: translate(-50%, 0);
+  margin-bottom: 20px;
+  cursor: pointer;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+/* line 617, preprocessor/main.scss */
+.view-plus {
+  position: absolute;
+  float: left;
+  width: 18px;
+  height: 18px;
+}
+/* line 624, preprocessor/main.scss */
+.view-plus:after, .view-plus:before {
+  position: absolute;
+  content: '';
+  background-color: #000000;
+}
+/* line 629, preprocessor/main.scss */
+.view-plus:after {
+  top: 50%;
+  left: 0px;
+  width: 18px;
+  height: 1px;
+  margin-top: -1px;
+}
+/* line 636, preprocessor/main.scss */
+.view-plus:before {
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 17px;
+}
+
+/* line 644, preprocessor/main.scss */
+.view-proj p,
+.close-proj p {
+  margin-left: 30px;
+  margin-bottom: 20px;
 }
 
 /*#work-1 .work-info {
@@ -701,27 +748,27 @@ section {
     background-color: #DDEDFF;
 }
 #work-3*/
-/* line 611, preprocessor/main.scss */
+/* line 654, preprocessor/main.scss */
 .work-info {
   background-color: #E7F1FF;
 }
 
-/* line 614, preprocessor/main.scss */
+/* line 657, preprocessor/main.scss */
 #work-1 {
   background-image: url(../img/work1.jpg);
 }
 
-/* line 617, preprocessor/main.scss */
+/* line 660, preprocessor/main.scss */
 #work-2 {
   background-image: url(../img/work2.jpg);
 }
 
-/* line 620, preprocessor/main.scss */
+/* line 663, preprocessor/main.scss */
 #work-3 {
   background-image: url(../img/work3.jpg);
 }
 
-/* line 625, preprocessor/main.scss */
+/* line 668, preprocessor/main.scss */
 .hp-work-item.active .worktext-appear-wrap {
   -webkit-transform: translateX(0) !important;
   -moz-transform: translateX(0) !important;
@@ -731,7 +778,7 @@ section {
   opacity: 1;
 }
 
-/* line 636, preprocessor/main.scss */
+/* line 679, preprocessor/main.scss */
 #contact {
   width: 100%;
   height: 100vh;
@@ -742,7 +789,7 @@ section {
   transition: all .2s;
 }
 
-/* line 645, preprocessor/main.scss */
+/* line 688, preprocessor/main.scss */
 #contact-wrap {
   width: 100%;
   height: 60%;
@@ -755,7 +802,7 @@ section {
   transform: translateY(-50%);
 }
 
-/* line 656, preprocessor/main.scss */
+/* line 699, preprocessor/main.scss */
 #contact-left {
   -webkit-transition: all .2s;
   -moz-transition: all .2s;
@@ -764,7 +811,7 @@ section {
   transition: all .2s;
 }
 
-/* line 663, preprocessor/main.scss */
+/* line 706, preprocessor/main.scss */
 #contact-right {
   -webkit-transition: all .2s .2s;
   -moz-transition: all .2s .2s;
@@ -773,7 +820,7 @@ section {
   transition: all .2s .2s;
 }
 
-/* line 671, preprocessor/main.scss */
+/* line 714, preprocessor/main.scss */
 #contact-left,
 #contact-right {
   display: block;
@@ -792,7 +839,7 @@ section {
   transform: translateY(50px);
 }
 
-/* line 686, preprocessor/main.scss */
+/* line 729, preprocessor/main.scss */
 #contact.active #contact-left,
 #contact.active #contact-right {
   opacity: 1;
@@ -803,14 +850,14 @@ section {
   transform: translateY(0px);
 }
 
-/* line 695, preprocessor/main.scss */
+/* line 738, preprocessor/main.scss */
 #contact h1 {
   position: relative;
   margin-top: 0;
   font-size: 60px;
   font-weight: 200;
 }
-/* line 701, preprocessor/main.scss */
+/* line 744, preprocessor/main.scss */
 #contact h1::before {
   position: absolute;
   content: '';
@@ -826,34 +873,34 @@ section {
   transition: all .2s;
 }
 
-/* line 716, preprocessor/main.scss */
+/* line 759, preprocessor/main.scss */
 #contact h2 {
   font-size: 18px;
   font-weight: 400;
   margin: 0 0 40px 0;
 }
 
-/* line 721, preprocessor/main.scss */
+/* line 764, preprocessor/main.scss */
 #contact h3 {
   margin: 0;
   font-size: 12px;
   text-transform: uppercase;
 }
 
-/* line 726, preprocessor/main.scss */
+/* line 769, preprocessor/main.scss */
 #contact ul {
   padding: 0;
   margin-top: 0;
   list-style: none;
 }
 
-/* line 731, preprocessor/main.scss */
+/* line 774, preprocessor/main.scss */
 #contact li {
   font-size: 18px;
   font-weight: 400;
 }
 
-/* line 735, preprocessor/main.scss */
+/* line 778, preprocessor/main.scss */
 #contact-right p {
   position: absolute;
   bottom: 0;
@@ -865,7 +912,7 @@ section {
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-/* line 760, preprocessor/main.scss */
+/* line 803, preprocessor/main.scss */
 .ir {
   background-color: transparent;
   border: 0;
@@ -873,7 +920,7 @@ section {
   *text-indent: -9999px;
 }
 
-/* line 767, preprocessor/main.scss */
+/* line 810, preprocessor/main.scss */
 .ir:before {
   content: "";
   display: block;
@@ -881,13 +928,13 @@ section {
   height: 150%;
 }
 
-/* line 774, preprocessor/main.scss */
+/* line 817, preprocessor/main.scss */
 .hidden {
   display: none !important;
   visibility: hidden;
 }
 
-/* line 779, preprocessor/main.scss */
+/* line 822, preprocessor/main.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -899,7 +946,7 @@ section {
   width: 1px;
 }
 
-/* line 791, preprocessor/main.scss */
+/* line 834, preprocessor/main.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -910,24 +957,24 @@ section {
   width: auto;
 }
 
-/* line 800, preprocessor/main.scss */
+/* line 843, preprocessor/main.scss */
 .invisible {
   visibility: hidden;
 }
 
-/* line 805, preprocessor/main.scss */
+/* line 848, preprocessor/main.scss */
 .clearfix:before,
 .clearfix:after {
   content: " ";
   display: table;
 }
 
-/* line 810, preprocessor/main.scss */
+/* line 853, preprocessor/main.scss */
 .clearfix:after {
   clear: both;
 }
 
-/* line 814, preprocessor/main.scss */
+/* line 857, preprocessor/main.scss */
 .clearfix {
   *zoom: 1;
 }
@@ -936,7 +983,7 @@ section {
    Print styles
    ========================================================================== */
 @media print {
-  /* line 823, preprocessor/main.scss */
+  /* line 866, preprocessor/main.scss */
   * {
     background: transparent !important;
     color: #000 !important;
@@ -944,48 +991,48 @@ section {
     text-shadow: none !important;
   }
 
-  /* line 831, preprocessor/main.scss */
+  /* line 874, preprocessor/main.scss */
   a,
   a:visited {
     text-decoration: underline;
   }
 
-  /* line 835, preprocessor/main.scss */
+  /* line 878, preprocessor/main.scss */
   a[href]:after {
     content: " (" attr(href) ")";
   }
 
-  /* line 839, preprocessor/main.scss */
+  /* line 882, preprocessor/main.scss */
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
-  /* line 845, preprocessor/main.scss */
+  /* line 888, preprocessor/main.scss */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
   }
 
-  /* line 850, preprocessor/main.scss */
+  /* line 893, preprocessor/main.scss */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-  /* line 855, preprocessor/main.scss */
+  /* line 898, preprocessor/main.scss */
   thead {
     display: table-header-group;
   }
 
-  /* line 860, preprocessor/main.scss */
+  /* line 903, preprocessor/main.scss */
   tr,
   img {
     page-break-inside: avoid;
   }
 
-  /* line 864, preprocessor/main.scss */
+  /* line 907, preprocessor/main.scss */
   img {
     max-width: 100% !important;
   }
@@ -994,7 +1041,7 @@ section {
     margin: 0.5cm;
 }
 
-  /* line 874, preprocessor/main.scss */
+  /* line 917, preprocessor/main.scss */
   p,
   h2,
   h3 {
@@ -1002,7 +1049,7 @@ section {
     widows: 3;
   }
 
-  /* line 880, preprocessor/main.scss */
+  /* line 923, preprocessor/main.scss */
   h2,
   h3 {
     page-break-after: avoid;

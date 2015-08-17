@@ -4,6 +4,7 @@ var Intro = require('./HomepageIntro.react.js')
 var classNames = require('classnames');
 var WorkItems = require('./HomepageProjects.react.js')
 var Contact = require('../common/Contact.js')
+var Animations = require('../../animations/animations.js')
 
 
 
@@ -13,8 +14,8 @@ var HomepageWrap = React.createClass({
 		menuHover: ['menu', 'isHovering'],
 		menuActive: ['menu', 'isOpen']
 	},
-	onComponentDidMount: function() {
-
+	componentDidMount: function() {
+		Animations.init();
 	},
 	render: function() {
 		return (

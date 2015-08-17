@@ -1,5 +1,6 @@
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
 
 var ROOT_PATH = path.resolve(__dirname);
 
@@ -26,8 +27,12 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlwebpackPlugin({
-      title: 'Wire Design'
-    })
+      new HtmlwebpackPlugin({ title: 'Wire Design' }),
+      new webpack.ProvidePlugin({
+        $ : "jquery",
+        jQuery : "jquery",
+        "window.jQuery" : "jquery",
+        "root.jQuery" : "jquery"
+      })
   ]
 };
