@@ -1,7 +1,4 @@
 var PanelSnap = require('../vendor/jquery.panelSnap.js');
-var JColor = require('../vendor/jquery.color-2.1.2.min.js');
-var PROJECTS = require('../data/projects.js');
-
 
 function panelSnapper() {
 	var panelOptions = {
