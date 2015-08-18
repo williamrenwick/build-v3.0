@@ -6,9 +6,7 @@ function Color(colourString) {
     this.getDigits = function() {
         var self = this,
             r = /\d+/g,
-            matches = self.colourString.match(/(\d+), (\d+), (\d+)/),
-            number1 = Number(matches[1]),
-            number2 = Number(matches[2]);
+            matches = self.colourString.match(/(\d+), (\d+), (\d+)/);
 
         return matches
     },
