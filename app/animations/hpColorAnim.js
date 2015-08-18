@@ -51,9 +51,9 @@ function changeItemBg(scrollPos) {
 
 	if (scrollPos >= animationBeginPos && scrollPos <= animationEndPos ) { 
 		var percentScrolled = scrollPos / ( animationEndPos - animationBeginPos );
-        var newRed = beginningColor.red() + ( ( endingColor.red() - beginningColor.red() ) * percentScrolled );
-        var newGreen = beginningColor.green() + ( ( endingColor.green() - beginningColor.green() ) * percentScrolled );
-        var newBlue = beginningColor.blue() + ( ( endingColor.blue() - beginningColor.blue() ) * percentScrolled );
+        var newRed = Math.round(beginningColor.red() + ( ( endingColor.red() - beginningColor.red() ) * percentScrolled ));
+        var newGreen = Math.round(beginningColor.green() + ( ( endingColor.green() - beginningColor.green() ) * percentScrolled ));
+        var newBlue = Math.round(beginningColor.blue() + ( ( endingColor.blue() - beginningColor.blue() ) * percentScrolled ));
         var newColor = 'rgb(' + newRed + ', ' + newGreen +', ' + newBlue + ')';
 
         //console.log('newColor', newColor, 'percentScrolled', percentScrolled);
