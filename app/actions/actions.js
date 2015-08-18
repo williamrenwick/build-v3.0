@@ -26,6 +26,9 @@ var menuActions = {
 	},
 	projSideClose: function() {
 		MenuCursor.set('projSideOpen', false)
+	},
+	isOnDark: function() {
+		MenuCursor.set('isOnDark', true)
 	}
 }
 

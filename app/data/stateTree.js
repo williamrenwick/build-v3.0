@@ -4,7 +4,8 @@ var stateTree = new Baobab({
 	menu: {
 		isHovering: false,
 		isOpen: false,
-		projSideOpen: false
+		projSideOpen: false,
+		isOnDark: false
 	},
 	scrolling: {
 		scrollPosition: null

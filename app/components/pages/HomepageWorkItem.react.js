@@ -2,7 +2,6 @@ var React = require('react');
 var mixin = require('baobab-react/mixins').branch;
 var ViewBtn = require('./HomepageViewBtn.react.js');
 var HpColorAnim = require('../../animations/hpColorAnim.js');
-var ScrollActions = require('../../actions/scrollActions.js');
 var HPActions = require('../../actions/hpActions.js');
 
 
@@ -19,10 +18,8 @@ var HpWorkItem = React.createClass({
 		window.removeEventListener('scroll', this.handleScroll);
 	},
 	handleScroll: function(event) {
- 		var scrollTop = event.srcElement.body.scrollTop,
- 			colorData = HpColorAnim.workInfoBg(scrollTop);
+ 		var colorData = HpColorAnim.workInfoBg(this.state.scrollPos);
 
- 		ScrollActions.scrollPosUpdate(scrollTop);
  		HPActions.updateBGColor(colorData);
 
  		console.log(colorData, this.state.scrollPos, this.state.workBGColor)

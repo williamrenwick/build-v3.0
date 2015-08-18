@@ -6,6 +6,7 @@ var MainNav = require('./common/MainNav.js');
 var SideNav = require('./common/SideNav.js');
 var styles = require('../main.css');
 var PROJECTS = require('../data/projects.js');
+var ScrollActions = require('../actions/scrollActions.js');
 	
 var DefaultRoute = Router.DefaultRoute;
 var Link = Router.Link;
@@ -16,6 +17,19 @@ var Homepage = require('./pages/HomepageWrap.react.js')
 
 var App = React.createClass({
 	mixins: [rootMixin],
+	componentDidMount: function() {
+		window.addEventListener('scroll', this.handleScroll);
+	},
+	componentDidUnmount: function() {
+		window.removeEventListener('scroll', this.handleScroll);
+	},
+	handleScroll: function(event) {
+		var scrollTop = event.srcElement.body.scrollTop;
+
+		console.log(scrollTop);
+
+		ScrollActions.scrollPosUpdate(scrollTop);
+	},
 	render: function() {
 		console.log( "app", this.state, this.props, this.getChildContext() );
 		return (

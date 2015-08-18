@@ -8,10 +8,9 @@ var MainNav = React.createClass({
 	mixins: [mixin],
 	cursors: {
 		isClicked: ['menu', 'isOpen'],
-		isHovering: ['menu', 'isHovering']
-	},
-	getInitialState: function() {
-		return {moveAmount: 0}
+		isHovering: ['menu', 'isHovering'],
+		isOnDark: ['menu', 'isOnDark'],
+		scrollPos: ['scrolling', 'scrollPosition']
 	},
 	teaseMenu: function(e) {
 		menuActions.isHovering();
@@ -62,6 +61,8 @@ var MainNav = React.createClass({
 
 			styleObj.transform = 'translateX(' + bumpAmount + 'px)';
 		}
+
+		//if (!this.state.isClicked && )
 
 		return styleObj;
 	},
