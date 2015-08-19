@@ -1,4 +1,3 @@
-var JColor = require('../vendor/jquery.color-2.1.2.min.js');
 var PROJECTS = require('../data/projects.js');
 
 function Color(colourString) {
@@ -45,8 +44,6 @@ function changeItemBg(scrollPos) {
 		endingColor = new Color('rgb(242, 231, 220)');
 
 
-    //console.log('scrollPos', scrollPos, 'endPos', animationEndPos, 'beginPos', animationBeginPos)
-
 	if (scrollPos >= animationBeginPos && scrollPos <= animationEndPos ) { 
 		var percentScrolled = scrollPos / ( animationEndPos - animationBeginPos );
         var newRed = Math.round(beginningColor.red() + ( ( endingColor.red() - beginningColor.red() ) * percentScrolled ));
@@ -54,7 +51,7 @@ function changeItemBg(scrollPos) {
         var newBlue = Math.round(beginningColor.blue() + ( ( endingColor.blue() - beginningColor.blue() ) * percentScrolled ));
         var newColor = 'rgb(' + newRed + ', ' + newGreen +', ' + newBlue + ')';
 
-        //console.log('newColor', newColor, 'percentScrolled', percentScrolled);
+        
         return newColor
 
 	} else if ( scrollPos > animationEndPos ) {

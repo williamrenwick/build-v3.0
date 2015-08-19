@@ -29,6 +29,9 @@ var menuActions = {
 	},
 	isOnDark: function() {
 		MenuCursor.set('isOnDark', true)
+	},
+	isOnLight: function() {
+		MenuCursor.set('isOnDark', false)
 	}
 }
 

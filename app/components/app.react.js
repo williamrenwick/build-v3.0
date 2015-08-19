@@ -16,7 +16,10 @@ var RouteHandler = Router.RouteHandler;
 var Homepage = require('./pages/HomepageWrap.react.js')
 
 var App = React.createClass({
-	mixins: [rootMixin],
+	mixins: [rootMixin], 
+	cursors: {
+		menuIsActive: ['menu', 'isOpen']
+	},
 	componentDidMount: function() {
 		window.addEventListener('scroll', this.handleScroll);
 	},
@@ -26,12 +29,9 @@ var App = React.createClass({
 	handleScroll: function(event) {
 		var scrollTop = event.srcElement.body.scrollTop;
 
-		console.log(scrollTop);
-
 		ScrollActions.scrollPosUpdate(scrollTop);
 	},
 	render: function() {
-		console.log( "app", this.state, this.props, this.getChildContext() );
 		return (
 			<div id="reactWrap">
 				<MainNav ref="main-nav"/>

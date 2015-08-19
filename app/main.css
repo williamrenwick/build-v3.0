@@ -108,7 +108,7 @@ section {
 }
 
 /* line 90, preprocessor/main.scss */
-.menuActive {
+.sideMenuActive {
   -webkit-transform: translateX(50%);
   -moz-transform: translateX(50%);
   -o-transform: translateX(50%);
@@ -117,7 +117,7 @@ section {
 }
 
 /* line 145, preprocessor/main.scss */
-.fixed-nav {
+.fixedNav {
   -webkit-transform: translateZ(0);
   position: fixed;
   width: 100%;
@@ -134,12 +134,12 @@ section {
 }
 
 /* line 159, preprocessor/main.scss */
-.fixed-nav.menu-active .site-title {
+.fixedNav.menuActive .site-title {
   opacity: 0;
 }
 
 /* line 163, preprocessor/main.scss */
-.fixed-nav > * {
+.fixedNav > * {
   display: inline-block;
 }
 
@@ -243,11 +243,11 @@ section {
 }
 
 /* line 256, preprocessor/main.scss */
-.fixed-nav.menu-active #menu-button::after {
+.fixedNav.menuActive #menu-button::after {
   width: 2px;
 }
 /* line 259, preprocessor/main.scss */
-.fixed-nav.menu-active #menu-button::before {
+.fixedNav.menuActive #menu-button::before {
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -o-transform: translateX(0);
@@ -257,19 +257,19 @@ section {
 }
 
 /* line 268, preprocessor/main.scss */
-.fixed-nav.menu-active .menu-line {
+.fixedNav.menuActive .menu-line {
   width: 0;
   opacity: 0;
   background-color: #000000;
 }
 /* line 273, preprocessor/main.scss */
-.fixed-nav.menu-active .menu-line::after {
+.fixedNav.menuActive .menu-line::after {
   width: 0;
   opacity: 0;
   background-color: #000000;
 }
 /* line 278, preprocessor/main.scss */
-.fixed-nav.menu-active .menu-line::before {
+.fixedNav.menuActive .menu-line::before {
   width: 0;
   opacity: 0;
   background-color: #000000;
@@ -294,20 +294,20 @@ section {
 }
 
 /* line 298, preprocessor/main.scss */
-.fixed-nav.onDark .menu-line {
+.fixedNav.onDark .menu-line {
   background-color: #ffffff;
 }
 /* line 301, preprocessor/main.scss */
-.fixed-nav.onDark .menu-line::before {
+.fixedNav.onDark .menu-line::before {
   background-color: #ffffff;
 }
 /* line 304, preprocessor/main.scss */
-.fixed-nav.onDark .menu-line::after {
+.fixedNav.onDark .menu-line::after {
   background-color: #ffffff;
 }
 
 /* line 308, preprocessor/main.scss */
-.fixed-nav.onDark .site-title {
+.fixedNav.onDark .site-title {
   color: #ffffff;
 }
 
@@ -546,7 +546,7 @@ section {
 
 /* line 498, preprocessor/main.scss */
 #wrap {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   -webkit-transition: -webkit-transform .2s;
   -moz-transition: -moz-transform .2s;
@@ -557,7 +557,7 @@ section {
 
 /* line 508, preprocessor/main.scss */
 #intro {
-  height: 100%;
+  height: 100vh;
   width: 100%;
 }
 

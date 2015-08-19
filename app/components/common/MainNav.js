@@ -1,8 +1,11 @@
-var React = require('react')
-var mixin = require('baobab-react/mixins').branch
-var menuActions = require('../../actions/actions.js')
+var React = require('react');
+var mixin = require('baobab-react/mixins').branch;
+var menuActions = require('../../actions/actions.js');
+var PROJECTS = require('../../data/projects.js');
+var classNames = require('classnames');
 
 var bumpAmount = 0;
+var body = $('body');
 
 var MainNav = React.createClass({
 	mixins: [mixin],
@@ -15,12 +18,11 @@ var MainNav = React.createClass({
 	teaseMenu: function(e) {
 		menuActions.isHovering();
 		bumpAmount = this.inAmount(e);
+
+		console.log(this.state.scrollPos)
 	},
 	unteaseMenu: function(e) {
 		menuActions.notHovering();	
-	},
-	handleClick: function(e) {
-		menuActions.isClicked();
 	},
 	inAmount: function(e) {
 		var button = e.target;
@@ -37,18 +39,40 @@ var MainNav = React.createClass({
 		}
 
 		var btnX = getOffset( button ).left;
-		var relX = (e.pageX - btnX) / 1.5
+		var relX = (e.pageX - btnX) / 1.5;
 
 		return relX;
 	},
 	menuToggle: function() {
 
 		if (!this.state.isClicked) {
+			disableBodyScroll();
 			menuActions.isClicked();
 		} else if (this.state.isClicked) {
+			enableBodyScroll();
 			menuActions.notClicked();
 		}
 
+		function disableBodyScroll() {
+			body.addClass('noScroll');
+		}
+		function enableBodyScroll() {
+			body.removeClass('noScroll');
+		}
+
+
+	},
+	colorSet: function() {
+		var windowH = window.innerHeight,
+			delta = 5,
+			workPostsTop = ( windowH - delta ),
+			workPostsBottom = (windowH * PROJECTS.length) + (windowH - delta);
+
+		if (this.state.scrollPos < workPostsTop || this.state.scrollPos > workPostsBottom) {
+			menuActions.isOnLight();
+		} else {
+			menuActions.isOnDark();
+		}
 	},
 	getStyles: function() {
 		var styleObj = {
@@ -62,14 +86,26 @@ var MainNav = React.createClass({
 			styleObj.transform = 'translateX(' + bumpAmount + 'px)';
 		}
 
-		//if (!this.state.isClicked && )
-
 		return styleObj;
+	},
+	componentDidMount: function() {
+		var timer = null,
+			self = this;
+
+		window.addEventListener('scroll', function() {
+			if(timer !== null) {
+				self.colorSet();
+				clearTimeout(timer);
+			}
+			timer = setTimeout(function() {
+				self.colorSet();
+			}, 150)
+		});
 	},
 	render: function() {
 
 		return (
-			<nav className={this.state.isClicked ? 'fixed-nav menu-active' : 'fixed-nav' } style={ this.getStyles() }>
+			<nav className={ classNames({fixedNav: true, menuActive: this.state.isClicked, onDark: this.state.isOnDark }) } style={ this.getStyles() }>
 	          <div id="menu-button" onMouseEnter={this.teaseMenu} onMouseLeave={this.unteaseMenu} onClick={this.menuToggle} ref="menu-btn">     
 	              <span className="menu-line"></span>
 	          </div>

@@ -8,6 +8,9 @@ var LiProjItem = React.createClass({
     cursors: {
         projSideOpen: ['menu', 'projSideOpen']
     },
+    mouseEnter: function() {
+        console.log(this.props)
+    },
     handleClick: function(e, idx) {
         console.log(idx)
     },
@@ -35,7 +38,7 @@ var LiProjItem = React.createClass({
     },
 	render: function() {
 		return (
-			<li className={classNames({projLink: true, projLi: !this.state.projSideOpen })} style={ this.getStyles() } onClick={ this.handleClick }>
+			<li className={classNames({projLink: true, projLi: !this.state.projSideOpen })} style={ this.getStyles() } onMouseEnter={ this.mouseEnter } onClick={ this.handleClick }>
 				<h1> {this.props.project.title} </h1>
 			</li>
 		)

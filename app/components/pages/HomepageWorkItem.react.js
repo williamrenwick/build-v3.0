@@ -21,8 +21,6 @@ var HpWorkItem = React.createClass({
  		var colorData = HpColorAnim.workInfoBg(this.state.scrollPos);
 
  		HPActions.updateBGColor(colorData);
-
- 		console.log(colorData, this.state.scrollPos, this.state.workBGColor)
 	},
 	render: function() {
 	
