@@ -7,13 +7,7 @@ var SideNav = require('./common/SideNav.js');
 var styles = require('../main.css');
 var PROJECTS = require('../data/projects.js');
 var ScrollActions = require('../actions/scrollActions.js');
-	
-var DefaultRoute = Router.DefaultRoute;
-var Link = Router.Link;
-var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
-
-var Homepage = require('./pages/homepage/HomepageWrap.react.js')
 
 var App = React.createClass({
 	mixins: [rootMixin], 

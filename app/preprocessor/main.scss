@@ -700,30 +700,26 @@ section {
 .worktext-appear-wrap  * {
     margin: 0;
 }
-.work-text h2,
-#project-hdr-text h2 {
+.work-text h2 {
     margin-bottom: 1rem;
     margin-top: 0;
     text-transform: lowercase;
     font-weight: 100;
     font-size: 18px;
 }
-.work-text h1,
-#project-hdr-text h1 {
+.work-text h1 {
     margin-bottom: 3rem;
     margin-top: 0;
     font-weight: 400;
     font-size: 50px;
     line-height: 1.2em;
 }
-.work-text h3,
-#project-hdr-text h3 {
+.work-text h3 {
     font-size: 12px;
     margin: 0;
     text-transform: uppercase;
 }
-.hp-work-item .view-proj,
-.close-proj {
+.hp-work-item .view-proj {
     position: relative;
     display: block;
     border: none;
@@ -761,8 +757,7 @@ section {
         height: 17px;
     }
 }
-.hp-work-item .view-proj p,
-.close-proj p {
+.hp-work-item .view-proj p {
     margin-left: 30px;
     margin-bottom: 20px;
 }
@@ -795,6 +790,24 @@ section {
     opacity: 1;
 }
 //>>>>>>>>>>>>>>>>>>>>>>>>>> ---- WORK ITEM END---- <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+////////////////////////////// ---- PROJECT PAGE ---- //////////////////////////////
+
+#project-hdr {
+    width: 100%;
+    height: 100vh;
+}
+#project-hdr-text {
+    width: 30%;
+}
+#project-hdr-text * { 
+    margin: 0;
+}
+
+
+
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>> ---- PROJECT PAGE END---- <<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 ////////////////////////////// ---- CONTACT ---- //////////////////////////////
 #contact {

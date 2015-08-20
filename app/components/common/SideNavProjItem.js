@@ -1,8 +1,10 @@
 var React = require('react');
+var Router = require('react-router')
 var ViewBtn = require('./SideNavViewBtn.js');
 var mixin = require('baobab-react/mixins').branch;
 var menuActions = require('../../actions/actions.js');
 var classNames = require('classnames');
+var Link = Router.Link;
 
 
 var LiProjItem = React.createClass({
@@ -46,12 +48,12 @@ var LiProjItem = React.createClass({
     },
 	render: function() {
 		return (
-			<li className={classNames({projLink: true, projLi: !this.state.projSideOpen })} style={ this.getStyles() } onClick={ this.handleClick }>
-                <Link to={this.props.project.link}>
+            <Link to={this.props.project.link}>
+    			<li className={classNames({projLink: true, projLi: !this.state.projSideOpen })} style={ this.getStyles() } onClick={ this.handleClick }>
     				<h1><span className="strikethrough">{this.props.project.title}</span></h1>
                     <ViewBtn />
-                </Link>
-			</li>
+    			</li>
+            </Link>
 		)
 	}
 });

@@ -5,6 +5,7 @@ var HpColorAnim = require('../../../animations/hpColorAnim.js');
 var HPActions = require('../../../actions/hpActions.js');
 
 
+
 var HpWorkItem = React.createClass({
 	mixins: [mixin],
 	cursors: {
@@ -22,8 +23,7 @@ var HpWorkItem = React.createClass({
 
  		HPActions.updateBGColor(colorData);
 	},
-	render: function() {
-	
+	render: function() {	
 		return (
 			<section className="hp-work-item" style={{'background-image': 'url(' + this.props.project.bgImg + ')' }}>
 			  <div className="work-info" style={{ 'background-color': this.state.workBGColor }} ref="workInfo">

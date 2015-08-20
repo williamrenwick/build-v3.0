@@ -1,10 +1,14 @@
 var React = require('react');
-var mixin = require('baobab-react/mixins').branch
+var mixin = require('baobab-react/mixins').branch;
 
 var ProjectWrap = React.createClass({
+	componentDidMount: function() {
+		console.log(this.props)
+	},
 	render: function() {
 		return (
 			<div id="project-hdr">
+				<div id="project-hdr-img" ></div>
 				<div id="project-hdr-text">
 				    <div className="close-proj">
 				        <div className="view-close"></div>
@@ -19,4 +23,6 @@ var ProjectWrap = React.createClass({
 			</div>
 		)
 	}
-})
+});
+
+module.exports = ProjectWrap;
