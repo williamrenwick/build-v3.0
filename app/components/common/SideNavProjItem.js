@@ -1,18 +1,26 @@
 var React = require('react');
+var ViewBtn = require('./SideNavViewBtn.js');
 var mixin = require('baobab-react/mixins').branch;
 var menuActions = require('../../actions/actions.js');
 var classNames = require('classnames');
 
+
 var LiProjItem = React.createClass({
 	mixins: [mixin],
     cursors: {
-        projSideOpen: ['menu', 'projSideOpen']
+        projSideOpen: ['menu', 'projSideOpen'],
+        menuActive: ['menu', 'isOpen']
     },
-    mouseEnter: function() {
-        console.log(this.props)
-    },
-    handleClick: function(e, idx) {
-        console.log(idx)
+    handleClick: function() {
+        var $window = $(window),
+            workPostH = $window.height(),
+            postIndex = this.props.project.index,
+            postPosition = workPostH * postIndex;
+
+
+        menuActions.notClicked();
+        $window.scrollTop(postPosition);
+        
     },
     getStyles: function() {
     	var styleObj = {
@@ -38,8 +46,11 @@ var LiProjItem = React.createClass({
     },
 	render: function() {
 		return (
-			<li className={classNames({projLink: true, projLi: !this.state.projSideOpen })} style={ this.getStyles() } onMouseEnter={ this.mouseEnter } onClick={ this.handleClick }>
-				<h1> {this.props.project.title} </h1>
+			<li className={classNames({projLink: true, projLi: !this.state.projSideOpen })} style={ this.getStyles() } onClick={ this.handleClick }>
+                <Link to={this.props.project.link}>
+    				<h1><span className="strikethrough">{this.props.project.title}</span></h1>
+                    <ViewBtn />
+                </Link>
 			</li>
 		)
 	}

@@ -1,8 +1,8 @@
 var React = require('react');
 var mixin = require('baobab-react/mixins').branch;
 var ViewBtn = require('./HomepageViewBtn.react.js');
-var HpColorAnim = require('../../animations/hpColorAnim.js');
-var HPActions = require('../../actions/hpActions.js');
+var HpColorAnim = require('../../../animations/hpColorAnim.js');
+var HPActions = require('../../../actions/hpActions.js');
 
 
 var HpWorkItem = React.createClass({

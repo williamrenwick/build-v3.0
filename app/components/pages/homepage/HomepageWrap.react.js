@@ -3,8 +3,8 @@ var mixin = require('baobab-react/mixins').branch
 var Intro = require('./HomepageIntro.react.js')
 var classNames = require('classnames');
 var WorkItems = require('./HomepageProjects.react.js')
-var Contact = require('../common/Contact.js')
-var Animations = require('../../animations/animations.js')
+var Contact = require('../../common/Contact.js')
+var Animations = require('../../../animations/animations.js')
 
 
 

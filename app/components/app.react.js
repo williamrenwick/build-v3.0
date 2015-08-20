@@ -13,7 +13,7 @@ var Link = Router.Link;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 
-var Homepage = require('./pages/HomepageWrap.react.js')
+var Homepage = require('./pages/homepage/HomepageWrap.react.js')
 
 var App = React.createClass({
 	mixins: [rootMixin], 

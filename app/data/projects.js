@@ -1,7 +1,9 @@
 var PROJECTS = [];
 
-function addProject(title, client, fields, bgImage) {
+function addProject(index, link, title, client, fields, bgImage) {
 	PROJECTS.push({
+		index: index,
+		link: link,
 		title: title,
 		client: client,
 		fields: fields,
@@ -10,9 +12,9 @@ function addProject(title, client, fields, bgImage) {
 }
 
 function addAll() {
-	addProject('Quisque Sit Amet Mi Eleifend', 'Client Name', 'UX, Design', 'img/work1.jpg');
-	addProject('Lorem Ipsum Dolor', 'Client Name', 'UX, Design', 'img/work2.jpg');
-	addProject('Consectetur Adipiscing Elit', 'Client Name', 'UX, Design', 'img/work3.jpg');
+	addProject(1, "Forward", 'Forward', 'Client Name', 'UX, Design', 'img/work1.jpg');
+	addProject(2, "Roche-CMS", 'Roche CMS', 'Client Name', 'UX, Design', 'img/work2.jpg');
+	addProject(3, "Mei-li-Rose", 'Mei-li Rose', 'Client Name', 'UX, Design', 'img/work3.jpg');
 }
 
 addAll();

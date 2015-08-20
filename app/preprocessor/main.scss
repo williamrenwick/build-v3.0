@@ -369,7 +369,7 @@ section {
 }
 #side-nav li {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     cursor: pointer;
 
     &:before {
@@ -424,13 +424,13 @@ section {
         left: 50%;
         margin-left: -1px;
         width: 2px;
-        height: 99%;
+        height: 100%;
     }
     &:after {
         top: 50%;
         margin-top: -1px;
         height: 2px;
-        width: 99%;
+        width: 100%;
     }
     &.close {
         transform: rotate(-135deg);
@@ -447,7 +447,7 @@ section {
     width: 100%;
     min-height: 100px;
     height: 100px;
-    padding: 50px;
+    padding: 10% 20%;
     margin: 0;
     @include bg-image(center);
     background-size: cover;
@@ -461,6 +461,19 @@ section {
 }
 .projLi {
     @include fadeInLeft(-100%);
+}
+.projLink {
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 1;
+    }
 }
 .projLink h1 {
     position: relative;
@@ -478,12 +491,120 @@ section {
     -o-transition: all .2s .25s;
     -ms-transition: all .2s .25s;
     transition: all .2s .25s;
+    z-index: 2;
 }
-#side-nav.projectMenu h1 {
+.projLink .strikethrough {
+    display: inline-block;
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        height: 1px;
+        width: 0;
+        transition: width 0s ease, background .2s ease;
+    }
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        height: 1px;
+        width: 0;
+        background: #FFFFB0;
+        transition: width .2s ease;
+    }
+}
+.projLink:hover .strikethrough {
+    &:before {
+        width: 100%;
+        background: #FFFFB0;
+        transition: width .2s ease;
+    }
+    &:after {
+        width: 100%;
+        background: transparent;
+        transition: all 0s ease;
+    }
+}
+.projectMenu .projLink h1 {
     -webkit-transform: translate(0px, -50%);
     -ms-transform: translate(0px, -50%);
     transform: translate(0px, -50%);
     opacity: 1;
+}
+.projLink .view-proj {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    display: block;
+    border: none;
+    text-decoration: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 12px;
+    color: #ffffff;
+    cursor: pointer;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    transition: all ease .3s;
+    @include box-sizing(border-box);
+    z-index: 2;
+}
+.projLink:hover .view-proj {
+    -webkit-transform: translate(-50%, -100%);
+    -ms-transform: translate(-50%, -100%);
+    transform: translate(-50%, -100%);
+}
+.projLink .view-plus {
+    position: absolute;
+    float: left;
+    width: 18px;
+    height: 18px;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    transition: all ease .3s;
+
+    &:after,
+    &:before {
+        position: absolute;
+        content: '';
+        background-color: #ffffff;
+    }
+    &:after {
+        top: 50%;
+        left: 0px;
+        width: 18px;
+        height: 1px;
+        margin-top: -1px;
+    }
+    &:before {
+        top: 0;
+        left: 50%;
+        width: 1px;
+        height: 17px;
+    }
+}
+.projLink:hover .view-plus {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.projLink .view-proj p {
+    margin-top: 0;
+    margin-left: 30px;
+    margin-bottom: 0;
 }
 .number-wrap {
     font-size: 0.6em;
@@ -601,7 +722,7 @@ section {
     margin: 0;
     text-transform: uppercase;
 }
-.view-proj,
+.hp-work-item .view-proj,
 .close-proj {
     position: relative;
     display: block;
@@ -614,7 +735,7 @@ section {
     cursor: pointer;
     @include box-sizing(border-box);
 }
-.view-plus {
+.hp-work-item .view-plus {
     position: absolute;
     float: left;
     width: 18px;
@@ -640,7 +761,7 @@ section {
         height: 17px;
     }
 }
-.view-proj p,
+.hp-work-item .view-proj p,
 .close-proj p {
     margin-left: 30px;
     margin-bottom: 20px;

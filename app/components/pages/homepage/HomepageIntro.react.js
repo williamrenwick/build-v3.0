@@ -1,7 +1,7 @@
 var React = require('react')
-var Data = require('../../data/projects.js')
+var Data = require('../../../data/projects.js')
 
-var introText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet mi eleifend, vestibulum nunc eget, cursus urna. Maecenas elementum mauris et lorem congue, ut rhoncus lacus ullamcorper. Nulla sed ipsum sed tortor facilisis tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+var introText = 'WiRe Design is a studio founded and run by William Renwick, it offers bespoke and personal designs tailored to meet each clients needs. Specialised in producing high quality digital solutions';
 
 var HomepageIntro = React.createClass({
 	render: function() {
