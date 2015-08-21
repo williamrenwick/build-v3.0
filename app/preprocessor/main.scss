@@ -780,7 +780,6 @@ section {
     background-image: url(../img/work3.jpg);
 }
 
-
 .hp-work-item.active .worktext-appear-wrap {
     -webkit-transform: translateX(0) !important;
     -moz-transform: translateX(0) !important;
@@ -792,20 +791,88 @@ section {
 //>>>>>>>>>>>>>>>>>>>>>>>>>> ---- WORK ITEM END---- <<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 ////////////////////////////// ---- PROJECT PAGE ---- //////////////////////////////
-
+#projectWrap {
+    height: 100%;
+    width: 100%;
+    background-color: #222222;
+    -webkit-transition: -webkit-transform .2s;
+    -moz-transition: -moz-transform .2s;
+    -o-transition: -o-transform .2s;
+    -ms-transition: -ms-transform .2s;
+    transition: transform .2s;
+}
 #project-hdr {
+    position: relative;
     width: 100%;
     height: 100vh;
 }
 #project-hdr-text {
+    position: absolute;
+    left: 7%;
+    bottom: 15%;
     width: 30%;
+    color: #ffffff;
+    opacity: 0;
+    -webkit-transition: all ease .2s .5s;
+    -moz-transition: all ease .2s .5s;
+    -o-transition: all ease .2s .5s;
+    -ms-transition: all ease .2s .5s;
+    transition: all ease .2s .5s;
 }
 #project-hdr-text * { 
     margin: 0;
 }
-
-
-
+#project-hdr-text.loadAnim {
+    opacity: 1;
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    transform: translateY(-50px);
+}
+#project-hdr-img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include bg-image(center);
+    background-size: cover;
+    -webkit-transition: all .2s .3s;
+    -moz-transition: all .2s .3s;
+    -o-transition: all .2s .3s;
+    -ms-transition: all .2s .3s;
+    transition: all .2s .3s;
+}
+#project-hdr-img.loadAnim {
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+}
+#project-hdr-text h1 {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 1.2em;
+    margin-bottom: 2.2rem;
+}
+#project-hdr-text h2 {
+    text-transform: lowercase;
+    font-weight: 100;
+    font-size: 18px;
+    margin-bottom: 1.2rem;
+}
+#project-hdr-text h3 {
+    font-size: 12px;
+    margin: 0;
+    text-transform: uppercase;
+}
+.close-proj {
+    font-family: inherit;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>> ---- PROJECT PAGE END---- <<<<<<<<<<<<<<<<<<<<<<<<<<<<
 

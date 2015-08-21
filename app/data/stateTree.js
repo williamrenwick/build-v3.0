@@ -11,7 +11,12 @@ var stateTree = new Baobab({
 		scrollPosition: null
 	},
 	homepage: {
-		workBGColor: null
+		workBGColor: null,
+		isInHomepage: null
+	},
+	project: {
+		isInProjects: null,
+		loadAnimation: false
 	}
 })
 

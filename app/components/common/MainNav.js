@@ -13,13 +13,13 @@ var MainNav = React.createClass({
 		isClicked: ['menu', 'isOpen'],
 		isHovering: ['menu', 'isHovering'],
 		isOnDark: ['menu', 'isOnDark'],
-		scrollPos: ['scrolling', 'scrollPosition']
+		scrollPos: ['scrolling', 'scrollPosition'],
+		isInHomepage: ['homepage', 'isInHomepage'],
+		isInProjects: ['project', 'isInProjects'],
 	},
 	teaseMenu: function(e) {
 		menuActions.isHovering();
 		bumpAmount = this.inAmount(e);
-
-		console.log(this.state.scrollPos)
 	},
 	unteaseMenu: function(e) {
 		menuActions.notHovering();	
@@ -62,15 +62,20 @@ var MainNav = React.createClass({
 
 
 	},
-	colorSet: function() {
-		var windowH = window.innerHeight,
-			delta = 5,
-			workPostsTop = ( windowH - delta ),
-			workPostsBottom = (windowH * PROJECTS.length) + (windowH - delta);
+	colorManage: function() {
+		if (this.state.isInHomepage) {
+			var windowH = $(window).height(),
+				delta = 5,
+				workPostsTop = ( windowH - delta ),
+				workPostsBottom = (windowH * PROJECTS.length) + (windowH - delta);
 
-		if (this.state.scrollPos < workPostsTop || this.state.scrollPos > workPostsBottom) {
-			menuActions.isOnLight();
-		} else {
+			if (this.state.scrollPos < workPostsTop || this.state.scrollPos > workPostsBottom) {
+				menuActions.isOnLight();
+			} else {
+				menuActions.isOnDark();
+			}
+
+		} else if (this.state.isInProjects) {
 			menuActions.isOnDark();
 		}
 	},
@@ -82,7 +87,6 @@ var MainNav = React.createClass({
 		if (!this.state.isHovering && !this.state.isClicked) {
 			styleObj.transform = 'translateX(' + 0 + 'px)';
 		} else if (this.state.isHovering && !this.state.isClicked) {
-
 			styleObj.transform = 'translateX(' + bumpAmount + 'px)';
 		}
 
@@ -92,13 +96,14 @@ var MainNav = React.createClass({
 		var timer = null,
 			self = this;
 
-		window.addEventListener('scroll', function() {
+		self.colorManage();
+
+		$(window).on('scroll', function() {
 			if(timer !== null) {
-				self.colorSet();
 				clearTimeout(timer);
 			}
 			timer = setTimeout(function() {
-				self.colorSet();
+				self.colorManage();
 			}, 150)
 		});
 	},

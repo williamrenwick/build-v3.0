@@ -15,7 +15,10 @@ var App = React.createClass({
 		menuIsActive: ['menu', 'isOpen']
 	},
 	componentDidMount: function() {
+		var scrollTop = $(window).scrollTop();
 		window.addEventListener('scroll', this.handleScroll);
+
+		ScrollActions.scrollPosUpdate(scrollTop);
 	},
 	componentDidUnmount: function() {
 		window.removeEventListener('scroll', this.handleScroll);
@@ -30,7 +33,7 @@ var App = React.createClass({
 			<div id="reactWrap">
 				<MainNav ref="main-nav"/>
 				<SideNav projects={PROJECTS} ref="side-nav" />
-				<RouteHandler projects={PROJECTS} ref="content" />
+				<RouteHandler projects={PROJECTS} {...this.props} ref="content" />
 			</div>
 		)
 	}
