@@ -11,7 +11,7 @@ var ProjectHdr = React.createClass({
 	},
 	render: function() {
 		var activeProject = this.props.activeProject;
-		console.log(activeProject)
+		console.log(this.state.loadAnimation)
 		return (
 			<div id="project-hdr">
 				<div id="project-hdr-img" className={ classNames({ loadAnim: this.state.loadAnimation }) } style={{backgroundImage: 'url(' + activeProject.bgImg + ')'}}></div>

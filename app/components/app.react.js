@@ -12,7 +12,9 @@ var RouteHandler = Router.RouteHandler;
 var App = React.createClass({
 	mixins: [rootMixin], 
 	cursors: {
-		menuIsActive: ['menu', 'isOpen']
+		menuIsActive: ['menu', 'isOpen'],
+		isInHomepage: ['homepage', 'isInHomepage'],
+		scrollPos: ['scrolling', 'scrollPosition']
 	},
 	componentDidMount: function() {
 		var scrollTop = $(window).scrollTop();

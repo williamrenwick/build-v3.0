@@ -62,23 +62,6 @@ var MainNav = React.createClass({
 
 
 	},
-	colorManage: function() {
-		if (this.state.isInHomepage) {
-			var windowH = $(window).height(),
-				delta = 5,
-				workPostsTop = ( windowH - delta ),
-				workPostsBottom = (windowH * PROJECTS.length) + (windowH - delta);
-
-			if (this.state.scrollPos < workPostsTop || this.state.scrollPos > workPostsBottom) {
-				menuActions.isOnLight();
-			} else {
-				menuActions.isOnDark();
-			}
-
-		} else if (this.state.isInProjects) {
-			menuActions.isOnDark();
-		}
-	},
 	getStyles: function() {
 		var styleObj = {
 			transform: null
@@ -93,19 +76,7 @@ var MainNav = React.createClass({
 		return styleObj;
 	},
 	componentDidMount: function() {
-		var timer = null,
-			self = this;
-
-		self.colorManage();
-
-		$(window).on('scroll', function() {
-			if(timer !== null) {
-				clearTimeout(timer);
-			}
-			timer = setTimeout(function() {
-				self.colorManage();
-			}, 150)
-		});
+		
 	},
 	render: function() {
 

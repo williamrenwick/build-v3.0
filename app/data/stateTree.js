@@ -12,7 +12,8 @@ var stateTree = new Baobab({
 	},
 	homepage: {
 		workBGColor: null,
-		isInHomepage: null
+		isInHomepage: null,
+		insideWorkPosts: null
 	},
 	project: {
 		isInProjects: null,

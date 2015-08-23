@@ -10,6 +10,12 @@ var homePageActions = {
 	},
 	notInHomepage: function() {
 		HpCursor.set('isInHomepage', false)
+	},
+	insideWorkPosts: function() {
+		HpCursor.set('insideWorkPosts', true)
+	},
+	outsideWorkPosts: function() {
+		HpCursor.set('insideWorkPosts', false)
 	}
 }
 
