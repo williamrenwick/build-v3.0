@@ -62,6 +62,7 @@ var HomepageWrap = React.createClass({
 		}
 	},
 	render: function() {
+		console.log(this.props)
 		return (
 			<div data-page='hp' id="wrap" className={ classNames({ menuHover: this.state.menuHover, sideMenuActive: this.state.menuActive }) }>
 				<Intro />

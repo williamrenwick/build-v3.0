@@ -1,6 +1,8 @@
 var React = require('react');
 var mixin = require('baobab-react/mixins').branch;
 var classNames = require('classnames');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var ProjectHdr = React.createClass({
 	mixins: [mixin],
@@ -11,14 +13,14 @@ var ProjectHdr = React.createClass({
 	},
 	render: function() {
 		var activeProject = this.props.activeProject;
-		console.log(this.state.loadAnimation)
+		console.log(activeProject)
 		return (
 			<div id="project-hdr">
 				<div id="project-hdr-img" className={ classNames({ loadAnim: this.state.loadAnimation }) } style={{backgroundImage: 'url(' + activeProject.bgImg + ')'}}></div>
 				<div id="project-hdr-text" className={ classNames({ loadAnim: this.state.loadAnimation }) }>
 				    <div className="close-proj">
 				        <div className="view-close"></div>
-				        <p>Close Project</p>
+				        <Link to="home"><p>Close Project</p></Link>
 				    </div>
 				    <h1>{activeProject.title}</h1>
 				    <h3>Client</h3>

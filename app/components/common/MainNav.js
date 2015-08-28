@@ -44,7 +44,6 @@ var MainNav = React.createClass({
 		return relX;
 	},
 	menuToggle: function() {
-
 		if (!this.state.isClicked) {
 			disableBodyScroll();
 			menuActions.isClicked();
@@ -59,8 +58,6 @@ var MainNav = React.createClass({
 		function enableBodyScroll() {
 			body.removeClass('noScroll');
 		}
-
-
 	},
 	getStyles: function() {
 		var styleObj = {
@@ -74,9 +71,6 @@ var MainNav = React.createClass({
 		}
 
 		return styleObj;
-	},
-	componentDidMount: function() {
-		
 	},
 	render: function() {
 

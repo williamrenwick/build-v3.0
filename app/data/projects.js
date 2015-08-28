@@ -1,5 +1,14 @@
 var PROJECTS = [];
 
+function Project() {
+	this.index = index;
+	this.title = title;
+	this.extraInfo = extraInfo;
+}
+
+
+
+
 function addProject(index, link, title, client, fields, bgImage) {
 	PROJECTS.push({
 		index: index,
@@ -10,6 +19,7 @@ function addProject(index, link, title, client, fields, bgImage) {
 		bgImg: bgImage
 	})
 }
+
 
 function addAll() {
 	addProject(1, "forward", 'Forward', 'Client Name', 'UX, Design', 'img/work1.jpg');

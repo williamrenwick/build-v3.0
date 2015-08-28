@@ -5,19 +5,27 @@ var ProjectActions = require('../../../actions/projectActions.js');
 var classNames = require('classnames');
 var ScrollActions = require('../../../actions/scrollActions.js');
 var MenuActions = require('../../../actions/actions.js');
+var Router = require('react-router')
+
 
 var ProjectWrap = React.createClass({
-	mixins: [mixin],
+	contextTypes: {
+		router: React.PropTypes.func
+	},
+	mixins: [mixin, Router.State],
 	cursors: {
 		menuHover: ['menu', 'isHovering'],
 		menuActive: ['menu', 'isOpen']
 	},
 	getDataIdx: function() {
-		var props = this.props,	
-			currentPath = props.pathname;
+		var currentPath = '/roche-cms';
+		var props = this.props;
+
 
 		for (var i = 0; i < props.projects.length; i++) {
 			var relPath = '/' + props.projects[i].link
+
+			console.log(relPath, currentPath)
 
 			if (relPath == currentPath) {
 				return i;
@@ -26,6 +34,8 @@ var ProjectWrap = React.createClass({
 	},
 	componentDidMount: function() {
 		var scrollTop = $(window).scrollTop();
+
+		console.log('project mounted')
 
 		MenuActions.isOnDark();
 		ScrollActions.scrollPosUpdate(scrollTop);
@@ -36,10 +46,11 @@ var ProjectWrap = React.createClass({
 	render: function() {
 		var idx = this.getDataIdx(),
 			activeProject = this.props.projects[idx];
-		console.log('rendered');
+
+			console.log(this.props.params, idx)
 		return (
 			<div id="projectWrap" className={ classNames({ menuHover: this.state.menuHover, sideMenuActive: this.state.menuActive }) }>
-				<ProjectHeader activeProject={activeProject} />
+				<ProjectHeader activeProject={activeProject}/>
 			</div>
 		)
 	}
