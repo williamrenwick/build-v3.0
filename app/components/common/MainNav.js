@@ -45,18 +45,9 @@ var MainNav = React.createClass({
 	},
 	menuToggle: function() {
 		if (!this.state.isClicked) {
-			disableBodyScroll();
 			menuActions.isClicked();
 		} else if (this.state.isClicked) {
-			enableBodyScroll();
 			menuActions.notClicked();
-		}
-
-		function disableBodyScroll() {
-			body.addClass('noScroll');
-		}
-		function enableBodyScroll() {
-			body.removeClass('noScroll');
 		}
 	},
 	getStyles: function() {

@@ -32,6 +32,13 @@ var ProjectWrap = React.createClass({
 			}
 		}
 	},
+	componentWillMount: function() {
+		console.log('roche','componentWillMount');
+		$('body').removeClass('noScroll')
+	},
+	componentWillUnmount: function() {
+		console.log('roche','componentWillUnmount');
+	},
 	componentDidMount: function() {
 		var scrollTop = $(window).scrollTop();
 
@@ -47,7 +54,6 @@ var ProjectWrap = React.createClass({
 		var idx = this.getDataIdx(),
 			activeProject = this.props.projects[idx];
 
-			console.log(this.props.params, idx)
 		return (
 			<div id="projectWrap" className={ classNames({ menuHover: this.state.menuHover, sideMenuActive: this.state.menuActive }) }>
 				<ProjectHeader activeProject={activeProject}/>

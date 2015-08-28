@@ -11,6 +11,8 @@ var menuActions = {
 	},
 	isClicked: function() {
 		MenuCursor.set('isOpen', true)
+		//need to refactor to improve maintainability
+		$('body').addClass('noScroll');
 	},
 	notClicked: function() {
 		var projSideStatus = MenuCursor.get('isOpen');
@@ -20,6 +22,8 @@ var menuActions = {
 		if (projSideStatus) {
 			MenuCursor.set('projSideOpen', false);
 		}
+		//need to refactor to improve maintainability
+		$('body').removeClass('noScroll');
 	},
 	projSideOpen: function() {
 		MenuCursor.set('projSideOpen', true)
